@@ -17,3 +17,12 @@
         %li.contact-icon
           %span.hide
             contact
+
+:javascript
+$(document).ready(function(){
+  $("nav li").hover(function(){
+    $(this).children().toggle();
+  }, function(){
+    $(this).children().toggle();
+  });
+});
