@@ -1,3 +1,3 @@
 get "/" do 
-  haml :"index"
+  haml :"pages/index", layout: :landing
 end

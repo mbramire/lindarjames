@@ -28,6 +28,6 @@ enable :sessions
 # require_relative 'config/initializers/carrierwave'
 # require_relative 'uploaders/image_uploader'
 # require_relative 'models/models'
-# require_relative 'helpers/helpers'
+require_relative 'helpers/helpers'
 require_relative 'routes/routes'
 
