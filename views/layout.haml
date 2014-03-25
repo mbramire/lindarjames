@@ -1,0 +1,20 @@
+!!! 5
+%html
+  %head
+    %title= title 
+    %link{ rel: 'stylesheet', href: '/stylesheets/style.css' }
+    %link{ href: "//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css", rel: "stylesheet" }
+    %link{ href: 'http://fonts.googleapis.com/css?family=Titillium+Web:200,300,600', rel: 'stylesheet', type: 'text/css' }
+    %link{ rel: "shortcut icon", href: "/favicon.ico", type: "image/x-icon" }
+    %link{ rel: "icon", href: "/favicon.ico", type: "image/x-icon" }
+    %script{ src: 'http://code.jquery.com/jquery-latest.min.js' }
+  %body
+    - if admin_present?
+      = haml :"admin/_top_nav"
+    = haml :"shared/_top_nav"
+    - if @homepage.present?
+      = haml :"_banner"
+    = yield
+    - unless @hide_contact
+      = haml :"shared/_contact_form"
+    = haml :"shared/_footer"
