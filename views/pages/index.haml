@@ -1,28 +1,4 @@
 %img#landing{ src: "images/backgrounds/welcome.jpg" }
 #landing-page
   #welcome-container
-    %h1
-      Linda R. James
-    %nav
-      %ul
-        %li.about-icon
-          %span.hide
-            biography
-        %li.gallery-icon
-          %span.hide
-            gallery
-        %li.comment-icon
-          %span.hide
-            commentary
-        %li.contact-icon
-          %span.hide
-            contact
-
-:javascript
-$(document).ready(function(){
-  $("nav li").hover(function(){
-    $(this).children().toggle();
-  }, function(){
-    $(this).children().toggle();
-  });
-});
+    = haml :"shared/_navigation"

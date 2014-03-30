@@ -1,0 +1,11 @@
+%label{ for: "image_title"}
+  Title:
+%input{ id: "image_title", name: "image[title]", type: "text", value: "#{@image.title}"}
+
+%label{ for: "description"}
+  Description:
+%textarea{ id: "description", name: "image[description]", rows: "10" }
+
+%label{ for: "image"}
+  Image:
+%input{ id: "image", name: "image[image]", type: "file" }
