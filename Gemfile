@@ -13,6 +13,7 @@ gem "tux"
 gem "dotenv"
 gem "fog", "~> 1.3.1"
 gem "pony"
+gem "mini_magick"
 
 group :development do
   gem "shotgun"

@@ -1,0 +1,38 @@
+ /* page specific */
+#landing {
+  min-height: 100%;
+  min-width: 1000px;
+  
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+  
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+#landing-page {
+  display: table;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+#welcome-container {
+  width: 400px;
+  margin: auto auto;
+  text-align: center;
+  color: $primary;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+@media screen and (max-width: 1000px) { /* Specific to this particular image */
+  img.bg {
+    left: 50%;
+    margin-left: -512px;   /* 50% */
+  }
+}

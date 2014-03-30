@@ -1,0 +1,99 @@
+.main-nav {
+  a {
+    color: $primary;
+  }
+
+  ul {
+    margin-top: 30px;
+    display: inline-block;
+  }
+
+  li {
+    width: 75px;
+    height: 75px;
+    float: left;
+    margin-right: 10px;
+    line-height: 7.5em;
+    cursor: pointer;
+  }
+}
+
+.admin-nav {
+  display: inline-block;
+  width: 100%;
+  color: white;
+  padding: 20px;
+
+  ul {
+    float: right;
+  }
+
+  li {
+    margin-left: 20px;
+    float: left;
+  }
+
+  a {
+    color: white;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+}
+
+#nav-container{
+  background: white;
+  background-image: url("/images/backgrounds/paper.jpg");
+  background-position: bottom;
+  overflow: hidden;
+
+  ul {
+    float: right;
+    text-align: center;
+    margin: 30px 15px 0;
+  }
+
+  h1 {
+    float: left;
+    margin: 35px;
+  }
+}
+
+#torn-paper {
+  background-image: url("/images/backgrounds/torn-paper.png");
+  background-repeat: repeat-x;
+  height: 34px;
+}
+
+.about-icon {
+  background: url("/images/icons/about.png") center top no-repeat;
+
+  &:hover {
+    background: url("/images/icons/about-on.png") center top no-repeat; 
+  }
+}
+
+.comment-icon {
+  background: url("/images/icons/commentary.png") center 5px no-repeat;
+
+  &:hover {
+    background: url("/images/icons/commentary-on.png") center 5px no-repeat; 
+  }
+}
+
+.gallery-icon {
+  background: url("/images/icons/gallery.png") center top no-repeat;
+
+  &:hover {
+    background: url("/images/icons/gallery-on.png") center top no-repeat; 
+  }
+}
+
+.contact-icon {
+  background: url("/images/icons/contact.png") center top no-repeat;
+
+  &:hover {
+    background: url("/images/icons/contact-on.png") center top no-repeat; 
+  }
+}

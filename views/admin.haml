@@ -8,11 +8,7 @@
     %link{ rel: "icon", href: "/favicon.ico", type: "image/x-icon" }
     %script{ src: 'http://code.jquery.com/jquery-latest.min.js' }
   %body
-    - if @flash.present?
-      = haml :"/shared/_flash", locals: {obj: @flash}
-    - if admin_present?
-      = haml :"/shared/_admin_navigation"
     #nav-container
-      = haml :"/shared/_navigation"
+      = haml :"/shared/admin_navigation"
     #torn-paper
     = yield

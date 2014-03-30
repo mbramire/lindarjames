@@ -1,0 +1,6 @@
+- if obj.errors.present?
+  %ul.error-list
+    - obj.errors.full_messages.each do |m| 
+      %li
+        = m
+  %br
