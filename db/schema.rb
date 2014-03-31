@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20140330190731) do
-=======
 ActiveRecord::Schema.define(version: 20140331183410) do
->>>>>>> 4efaec1e44679b6f67682c7f4a5101293f0d07f2
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,8 +23,6 @@ ActiveRecord::Schema.define(version: 20140331183410) do
     t.datetime "updated_at"
   end
 
-<<<<<<< HEAD
-=======
   create_table "documents", force: true do |t|
     t.string   "title"
     t.text     "description"
@@ -37,15 +31,12 @@ ActiveRecord::Schema.define(version: 20140331183410) do
     t.datetime "updated_at"
   end
 
->>>>>>> 4efaec1e44679b6f67682c7f4a5101293f0d07f2
   create_table "gallery_images", force: true do |t|
     t.string   "title"
     t.string   "image"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-<<<<<<< HEAD
-=======
     t.string   "medium"
     t.string   "scale"
     t.string   "date"
@@ -56,7 +47,6 @@ ActiveRecord::Schema.define(version: 20140331183410) do
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
->>>>>>> 4efaec1e44679b6f67682c7f4a5101293f0d07f2
   end
 
 end

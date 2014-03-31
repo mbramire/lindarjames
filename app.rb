@@ -11,6 +11,7 @@ require 'pony'
 ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'] || 'postgres://localhost/ddl3r9urh0p0sb')
 
 enable :sessions
+set :session_secret, '@*#&28282bkjbkja;'
 
 require_relative 'config/initializers/pony'
 require_relative 'config/initializers/carrierwave'
