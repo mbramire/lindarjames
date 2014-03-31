@@ -2,9 +2,18 @@
   Title:
 %input{ id: "image_title", name: "image[title]", type: "text", value: "#{@image.title}"}
 
+%label{ for: "image_title"}
+  Date:
+%input{ id: "image_title", name: "image[date]", type: "text", value: "#{@image.date}"}
+
+%label{ for: "image_scale"}
+  Medium:
+%input{ id: "image_scale", name: "image[medium]", type: "text", value: "#{@image.medium}"}
+
 %label{ for: "description"}
   Description:
 %textarea{ id: "description", name: "image[description]", rows: "10" }
+  = @image.description
 
 %label{ for: "image"}
   Image:

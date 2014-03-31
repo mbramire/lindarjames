@@ -10,3 +10,15 @@ class GalleryImage < ActiveRecord::Base
   validates :title, presence: true
   mount_uploader :image, ImageUploader
 end
+
+class Post < ActiveRecord::Base
+  validates :title, presence: true
+  validates :content, presence: true
+end
+
+class Document < ActiveRecord::Base
+  validates :doc, presence: true
+  validates :title, presence: true
+  validates :description, presence: true
+  mount_uploader :doc, DocumentUploader
+end

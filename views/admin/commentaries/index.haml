@@ -1,0 +1,15 @@
+#content
+  %h2
+    Commentaries
+
+  - unless @posts.nil?
+    %ul
+    - @posts.each do |p|
+      %li
+        = pretty_date(p.created_at)
+      %li
+        %a{ href: "/admin/commentaries/#{p.id}/edit"}
+          = p.title
+
+  %a{ href: "/admin/commentaries/new"}
+    Add new commentary

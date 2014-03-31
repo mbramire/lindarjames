@@ -1,0 +1,11 @@
+#content
+  .row 
+    = haml :"shared/_errors", locals: {obj: @doc}
+    
+    %h2 
+      Edit Document
+
+    %form{ action: "/admin/commentaries/#{@doc.id}", method: "post"}
+      %input{ type: "hidden", name: "_method", value: "put"}
+      = haml :"/admin/bio/documents/_form"
+      %input.btn{type: "submit", value: "Update Post"}
