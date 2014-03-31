@@ -36,7 +36,9 @@ end
 
 #admin
 get "/admin" do
-  if params[:unauthorized]
+  if admin_present?
+    redirect "/admin/dashboard"
+  elsif params[:unauthorized]
     @flash = "You do not have permission to access this page. Please login to continue."
   end
   haml :"admin/login"
@@ -46,7 +48,7 @@ post "/login" do
   @admin = Admin.find_by(username: params[:username])
   if @admin.authenticate(params[:password])
     session[:user] = @admin
-    redirect "/admin/index"
+    redirect "/admin/dashboard"
   else
     @flash = "Invalid username or password"
     haml :"admin/login"
@@ -58,7 +60,7 @@ get "/logout" do
   redirect "/"
 end
 
-get "/admin/index" do
+get "/admin/dashboard" do
   haml :"admin/index"
 end
 
