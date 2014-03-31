@@ -14,6 +14,6 @@
 /public/uploads/*
 
 # Never, ever store the secrets of .env
-
+.env
 
 
