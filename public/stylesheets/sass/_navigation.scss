@@ -13,7 +13,7 @@
     height: 75px;
     float: left;
     margin-right: 10px;
-    line-height: 7.5em;
+    line-height: 6.5em;
     cursor: pointer;
   }
 }
@@ -67,33 +67,17 @@
 }
 
 .about-icon {
-  background: url("/images/icons/about.png") center top no-repeat;
-
-  &:hover {
-    background: url("/images/icons/about-on.png") center top no-repeat; 
-  }
+  @include nav-background("about")
 }
 
 .comment-icon {
-  background: url("/images/icons/commentary.png") center 5px no-repeat;
-
-  &:hover {
-    background: url("/images/icons/commentary-on.png") center 5px no-repeat; 
-  }
+  @include nav-background("commentary", 10px, 25px)
 }
 
 .gallery-icon {
-  background: url("/images/icons/gallery.png") center top no-repeat;
-
-  &:hover {
-    background: url("/images/icons/gallery-on.png") center top no-repeat; 
-  }
+  @include nav-background("gallery", 10px, 25px)
 }
 
 .contact-icon {
-  background: url("/images/icons/contact.png") center top no-repeat;
-
-  &:hover {
-    background: url("/images/icons/contact-on.png") center top no-repeat; 
-  }
+  @include nav-background("contact", 10px, 25px)
 }
