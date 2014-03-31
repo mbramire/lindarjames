@@ -1,1 +1,11 @@
 $primary: red;
+
+@mixin nav-background($image, $top: top, $size: 20px){
+  background: url("/images/icons/" + $image + ".png") center $top no-repeat;
+  background-size: $size;
+
+  &:hover {
+    background: url("/images/icons/" + $image + "-on.png") center $top no-repeat;
+    background-size: $size; 
+  }
+}
