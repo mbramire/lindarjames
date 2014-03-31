@@ -2,7 +2,14 @@
   %ul
   - @gallery.each do |i|
     %li
-      = i.title
+      %a{ href: "/admin/gallery/#{i.id}/edit"}
+        = i.title
+    %li
+      = i.date
+    %li
+      = i.medium
+    %li
+      = i.scale
     %li
       %img{ src: (i.image.thumb.url), alt: "Linda R James - #{i.title}" }
     %li

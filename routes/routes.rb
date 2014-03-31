@@ -36,7 +36,9 @@ end
 
 #admin
 get "/admin" do
-  if params[:unauthorized]
+  if admin_present?
+    redirect "/admin/dashboard"
+  elsif params[:unauthorized]
     @flash = "You do not have permission to access this page. Please login to continue."
   end
   haml :"admin/login"
@@ -46,7 +48,7 @@ post "/login" do
   @admin = Admin.find_by(username: params[:username])
   if @admin.authenticate(params[:password])
     session[:user] = @admin
-    redirect "/admin/index"
+    redirect "/admin/dashboard"
   else
     @flash = "Invalid username or password"
     haml :"admin/login"
@@ -58,10 +60,11 @@ get "/logout" do
   redirect "/"
 end
 
-get "/admin/index" do
+get "/admin/dashboard" do
   haml :"admin/index"
 end
 
+#gallery
 get "/admin/gallery" do
   @gallery = GalleryImage.all
   haml :"admin/gallery/index"
@@ -85,4 +88,96 @@ end
 delete "/admin/gallery/:id" do
   GalleryImage.find(params[:id]).destroy
   redirect "admin/gallery"
+end
+
+get "/admin/gallery/:id/edit" do
+  @image = GalleryImage.find(params[:id])
+  haml :"admin/gallery/edit"
+end
+
+put "/admin/gallery/:id" do
+  @image = GalleryImage.find(params[:id])
+  if @image.update_attributes(params[:image])
+    redirect "admin/gallery"
+  else
+    haml :"admin/gallery/edit"
+  end
+end
+
+#commentaries
+get "/admin/commentaries" do
+  @posts = Post.all
+  haml :"admin/commentaries/index"
+end
+
+get "/admin/commentaries/new" do
+  @post = Post.new
+  haml :"admin/commentaries/new"
+end
+
+post "/admin/commentaries" do
+  @post = Post.new(params[:commentary])
+  if @post.save
+    redirect "admin/commentaries"
+  else
+    haml :"admin/commentaries/new"
+  end
+end
+
+delete "/admin/commentaries/:id" do
+  Post.find(params[:id]).destroy
+  redirect "admin/commentaries"
+end
+
+get "/admin/commentaries/:id/edit" do
+  @post = Post.find(params[:id])
+  haml :"admin/commentaries/edit"
+end
+
+put "/admin/commentaries/:id" do
+  @post = Post.find(params[:id])
+  if @post.update_attributes(params[:commentary])
+    redirect "admin/commentaries"
+  else
+    haml :"admin/commentaries/edit"
+  end
+end
+
+#biography admin
+get "/admin/bio" do
+  @docs = Document.all
+  haml :"admin/bio/index"
+end
+
+get "/admin/docs/new" do
+  @doc = Document.new
+  haml :"admin/bio/documents/new"
+end
+
+post "/admin/docs" do
+  @doc = Document.new(params[:doc])
+  if @doc.save
+    redirect "admin/bio"
+  else
+    haml :"admin/bio/documents/new"
+  end
+end
+
+delete "/admin/docs/:id" do
+  Document.find(params[:id]).destroy
+  redirect "admin/bio"
+end
+
+get "/admin/docs/:id/edit" do
+  @post = Post.find(params[:id])
+  haml :"admin/bio/documents/edit"
+end
+
+put "/admin/docs/:id" do
+  @post = Post.find(params[:id])
+  if @post.update_attributes(params[:doc])
+    redirect "admin/commentaries"
+  else
+    haml :"admin/bio/documents/edit"
+  end
 end

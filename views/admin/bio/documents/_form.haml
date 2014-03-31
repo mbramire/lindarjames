@@ -1,0 +1,12 @@
+%label{ for: "doc_title"}
+  Title:
+%input{ id: "doc_title", name: "doc[title]", type: "text", value: "#{@doc.title}"}
+
+%label{ for: "description"}
+  Description:
+%textarea{ id: "description", name: "doc[description]", rows: "10" }
+  = @doc.description
+
+%label{ for: "doc"}
+  pdf:
+%input{ id: "doc", name: "doc[doc]", type: "file" }

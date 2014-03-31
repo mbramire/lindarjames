@@ -1,0 +1,12 @@
+#content
+  .row 
+    = haml :"shared/_errors", locals: {obj: @image}
+    
+    %h2 
+      Edit Image
+
+    %form{ action: "/admin/gallery/#{@image.id}", method: "post"}
+      %input{ type: "hidden", name: "_method", value: "put"}
+      = haml :"/admin/gallery/_form"
+      %input.btn{type: "submit", value: "Update Image"}
+    %img{ src: (@image.image.url) }

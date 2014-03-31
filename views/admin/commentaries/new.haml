@@ -1,0 +1,10 @@
+#content
+  .row 
+    = haml :"shared/_errors", locals: {obj: @post}
+
+    %h2
+      New Commentary
+
+    %form{ action: "/admin/commentaries", method: "post" }
+      = haml :"/admin/commentaries/_form"
+      %input.btn{ type: "submit", value: "Create Commentary" }

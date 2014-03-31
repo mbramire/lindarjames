@@ -1,0 +1,12 @@
+#content
+  %h2
+    Biography Documents
+
+  %ul
+  = @docs.each do |d|
+    %li
+      %a{ href: "/admin/docs/#{d.id}" }
+        = d.title
+
+  %a{ href: "/admin/docs/new "}
+    Add new document

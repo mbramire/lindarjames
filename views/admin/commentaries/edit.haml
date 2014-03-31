@@ -1,0 +1,11 @@
+#content
+  .row 
+    = haml :"shared/_errors", locals: {obj: @post}
+    
+    %h2 
+      Edit Post
+
+    %form{ action: "/admin/commentaries/#{@post.id}", method: "post"}
+      %input{ type: "hidden", name: "_method", value: "put"}
+      = haml :"/admin/commentaries/_form"
+      %input.btn{type: "submit", value: "Update Post"}
