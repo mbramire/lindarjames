@@ -1,0 +1,10 @@
+input {
+  border: 1px solid gray;
+  background: $light-gray;
+  padding: 5px;
+  @include inner-shadow;
+
+  &:-webkit-autofill {
+    background-color: $light-gray;
+  }
+}

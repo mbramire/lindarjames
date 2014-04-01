@@ -14,6 +14,12 @@ h1 {
 
 h2 {
   font-family: 'Playfair Display SC', times, serif;
-  font-size: 1.25em;
-  color: $primary;
+  font-size: 1.5em;
+  color: black;
+  margin-bottom: $margin
+}
+
+h3 {
+  @extend h2;
+  font-size: 1em;
 }

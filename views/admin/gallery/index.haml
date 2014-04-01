@@ -1,22 +1,36 @@
 #content
-  %ul
-  - @gallery.each do |i|
-    %li
-      %a{ href: "/admin/gallery/#{i.id}/edit"}
-        = i.title
-    %li
-      = i.date
-    %li
-      = i.medium
-    %li
-      = i.scale
-    %li
-      %img{ src: (i.image.thumb.url), alt: "Linda R James - #{i.title}" }
-    %li
-      = i.description
-    %li
-      %form{ action: "/admin/gallery/#{i.id}", method: "post" }
-        %input{ type: "hidden", name: "_method", value: "delete" }
-        %input{ type: "submit", value: "Delete Image" }
-  %a{ href: "/admin/gallery/new" }  
-    add images
+  .row
+    %table
+      %tr 
+        %th.thumb
+          Image 
+        %th
+          Title
+        %th
+          Date
+        %th
+          Medium
+        %th
+          Scale
+        %th
+          Desc.
+      - @gallery.each do |i|
+        %tr
+          %td.thumb
+            %a{ href: "/admin/gallery/#{i.id}/edit"}
+              %img{ src: (i.image.thumb.url), alt: "Linda R James - #{i.title}" }
+          %td
+            %h3
+              %a{ href: "/admin/gallery/#{i.id}/edit"}    
+                = i.title
+          %td
+            = i.date
+          %td
+            = i.medium
+          %td
+            = i.scale
+          %td
+            = i.description
+          
+    %a.btn{ href: "/admin/gallery/new" }  
+      add images

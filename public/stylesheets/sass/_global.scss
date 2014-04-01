@@ -8,3 +8,43 @@ body {
 .hide {
   display: none;
 }
+
+.pad-bottom {
+  padding-bottom: $padding;
+}
+
+.pad-top {
+  padding-top: $padding;
+}
+
+.pad-right {
+  padding-right: $padding;
+}
+
+.pad-left {
+  padding-left: $padding;
+}
+
+.pad-all {
+  padding-all: $padding;
+}
+
+.margin-bottom {
+  margin-bottom: $margin;
+}
+
+.margin-top {
+  margin-top: $margin;
+}
+
+.margin-right {
+  margin-right: $margin;
+}
+
+.margin-left {
+  margin-left: $margin;
+}
+
+.margin-all {
+  margin-all: $margin;
+}

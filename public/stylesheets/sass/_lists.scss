@@ -1,0 +1,9 @@
+.horiz-list {
+  display: block;
+  overflow: hidden;
+  
+  li {
+    float: left;
+    margin-right: $margin;
+  }  
+}

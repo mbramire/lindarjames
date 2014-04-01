@@ -54,6 +54,8 @@ table {
   box-sizing: border-box;
  }
 
+@import "bourbon/bourbon";
+@import "neat/neat";
 @import "mixins_variables";
 @import "layout";
 @import "navigation";
@@ -62,3 +64,6 @@ table {
 @import "global";
 @import "links_buttons";
 @import "errors";
+@import "forms";
+@import "lists";
+@import "tables";
