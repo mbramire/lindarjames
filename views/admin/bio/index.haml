@@ -1,12 +1,25 @@
 #content
-  %h2
-    Biography Documents
+  .row.margin-bottom-large
+    %h2
+      Biography Documents
 
-  %ul
-  = @docs.each do |d|
-    %li
-      %a{ href: "/admin/docs/#{d.id}" }
-        = d.title
+    %table.margin-bottom
+      %tr
+        %th.thumb 
+        %th
+          Title 
+        %th
+          Description
+      - @docs.each do |d|
+        %tr
+          %td.thumb
+            %a{ href: "/admin/docs/#{d.id}" }
+              %img.pad-all{ src: "/images/icons/pdf.jpg" }
+          %td
+            %a{ href: "/admin/docs/#{d.id}" }
+              = d.title
+          %td
+            = d.description
 
-  %a{ href: "/admin/docs/new "}
-    Add new document
+    %a.btn{ href: "/admin/docs/new "}
+      Add new document

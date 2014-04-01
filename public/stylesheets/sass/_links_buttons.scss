@@ -4,5 +4,11 @@ a {
 }
 
 .btn {
-  @include button(shiny, $primary);
+  color: white;
+  border: none;
+  font-weight: bold;
+  padding: 5px 15px;
+  background: $primary;
+  @include roundcorners;
+  display: inline-block;
 }

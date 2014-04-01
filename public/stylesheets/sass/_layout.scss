@@ -7,4 +7,16 @@
 
 .row {
   @include outer-container;
+
+  .sml-gray-box {
+    @include span-columns(4);
+    @include roundcorners;
+    text-align: center;
+    background: $light-gray;
+    padding: 20px;
+
+    img {
+      height: 35px;
+    }
+  }
 }

@@ -14,6 +14,10 @@ helpers do
    time.strftime("%B %d, %Y")
   end
 
+  def truncate(body)
+    "#{body.slice!(0..170)}..."
+  end
+
   #session helpers
   def admin_present?
     session[:user].present?

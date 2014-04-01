@@ -1,0 +1,11 @@
+#content
+  .row 
+    = haml :"shared/_errors", locals: {obj: @cat}
+    
+    %h2 
+      Edit Category
+
+    %form{ action: "/admin/gallery/category/#{@cat.id}", method: "post"}
+      %input{ type: "hidden", name: "_method", value: "put"}
+      = haml :"/admin/gallery/category/_form"
+      %input.btn{type: "submit", value: "Update Category"}

@@ -9,6 +9,14 @@ body {
   display: none;
 }
 
+.pull-right {
+  float: right;
+}
+
+.pull-left {
+  float: left;
+}
+
 .pad-bottom {
   padding-bottom: $padding;
 }
@@ -26,7 +34,7 @@ body {
 }
 
 .pad-all {
-  padding-all: $padding;
+  padding: $padding;
 }
 
 .margin-bottom {
@@ -46,5 +54,9 @@ body {
 }
 
 .margin-all {
-  margin-all: $margin;
+  margin: $margin;
 }
+
+.margin-bottom-large {
+  margin-bottom: $margin * 5;
+} 

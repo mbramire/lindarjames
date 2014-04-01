@@ -2,6 +2,13 @@
   Title:
 %input{ id: "image_title", name: "image[title]", type: "text", value: "#{@image.title}"}
 
+%label{ for: "iamge_category"}
+  Category:
+%select{ id: "image_category", name: "image[category_id]" }
+  - Category.all.each do |cat|
+    %option{ value: cat.id, selected: (@image.category_id == cat.id) }
+      = cat.name
+
 %label{ for: "image_date"}
   Date:
 %input{ id: "image_date", name: "image[date]", type: "text", value: "#{@image.date}"}

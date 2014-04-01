@@ -66,7 +66,7 @@ end
 
 #gallery
 get "/admin/gallery" do
-  @gallery = GalleryImage.all
+  @cat = Category.all
   haml :"admin/gallery/index"
 end
 
@@ -101,6 +101,39 @@ put "/admin/gallery/:id" do
     redirect "admin/gallery"
   else
     haml :"admin/gallery/edit"
+  end
+end
+
+get "/admin/gallery/category/new" do
+  @cat = Category.new
+  haml :"admin/gallery/category/new"
+end
+
+post "/admin/category" do
+  @cat = Category.new(params[:cat])
+  if @cat.save
+    redirect "admin/gallery"
+  else
+    haml :"admin/gallery/category/new"
+  end
+end
+
+delete "/admin/gallery/category/:id" do
+  Category.find(params[:id]).destroy
+  redirect "admin/gallery"
+end
+
+get "/admin/gallery/category/:id/edit" do
+  @cat = Category.find(params[:id])
+  haml :"admin/gallery/category/edit"
+end
+
+put "/admin/gallery/category/:id" do
+  @cat = Category.find(params[:id])
+  if @cat.update_attributes(params[:cat])
+    redirect "admin/gallery"
+  else
+    haml :"admin/gallery/category/edit"
   end
 end
 

@@ -1,15 +1,25 @@
 #content
-  %h2
-    Commentaries
+  .row.margin-bottom-large
+    %h2
+      Commentaries
 
-  - unless @posts.nil?
-    %ul
-    - @posts.each do |p|
-      %li
-        = pretty_date(p.created_at)
-      %li
-        %a{ href: "/admin/commentaries/#{p.id}/edit"}
-          = p.title
+    %table.margin-bottom
+      %tr 
+        %th
+          Title
+        %th
+          Date  
+        %th
+          Description
+      - @posts.each do |p|
+        %tr
+          %td
+            %a{ href: "/admin/commentaries/#{p.id}/edit"}
+              = p.title
+          %td
+            = pretty_date(p.created_at)
+          %td
+            = truncate(p.content)
 
-  %a{ href: "/admin/commentaries/new"}
-    Add new commentary
+    %a.btn{ href: "/admin/commentaries/new"}
+      Add new commentary

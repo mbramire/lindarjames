@@ -1,0 +1,8 @@
+%label{ for: "cat_name"}
+  Name:
+%input{ id: "cat_name", name: "cat[name]", type: "text", value: "#{@cat.name}"}
+
+%label{ for: "post_body"}
+  Description:
+%textarea#post_body{ name: "cat[description]", rows: "10"}
+  = @cat.description

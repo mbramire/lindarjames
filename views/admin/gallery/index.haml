@@ -1,36 +1,63 @@
 #content
-  .row
-    %table
+  .row.margin-bottom-large
+    %h2
+      Categories
+      
+    %table.margin-bottom
       %tr 
-        %th.thumb
-          Image 
         %th
-          Title
+          Name 
         %th
-          Date
-        %th
-          Medium
-        %th
-          Scale
-        %th
-          Desc.
-      - @gallery.each do |i|
+          Description
+      - @cat.each do |c|
         %tr
-          %td.thumb
-            %a{ href: "/admin/gallery/#{i.id}/edit"}
-              %img{ src: (i.image.thumb.url), alt: "Linda R James - #{i.title}" }
           %td
-            %h3
-              %a{ href: "/admin/gallery/#{i.id}/edit"}    
-                = i.title
+            %a{ href: "/admin/gallery/category/#{c.id}/edit"}
+              = c.name
           %td
-            = i.date
-          %td
-            = i.medium
-          %td
-            = i.scale
-          %td
-            = i.description
+            = c.description
           
-    %a.btn{ href: "/admin/gallery/new" }  
-      add images
+    %a.btn{ href: "/admin/gallery/category/new" }  
+      add category
+
+  .row.margin-bottom-large
+    %h2.pull-left
+      Images
+
+    - @cat.each do |cat|
+      %h3.pull-right
+        = cat.name
+      %table.margin-bottom
+        %tr 
+          %th.thumb
+            Image 
+          %th
+            Title
+          %th
+            Date
+          %th
+            Medium
+          %th
+            Scale
+          %th
+            Desc.
+        - cat.gallery_images.each do |i|
+          %tr
+            %td.thumb
+              %a{ href: "/admin/gallery/#{i.id}/edit"}
+                %img{ src: (i.image.thumb.url), alt: "Linda R James - #{i.title}" }
+            %td
+              %h3
+                %a{ href: "/admin/gallery/#{i.id}/edit"}    
+                  = i.title
+            %td
+              = i.date
+            %td
+              = i.medium
+            %td
+              = i.scale
+            %td
+              = i.description
+            
+      %a.btn{ href: "/admin/gallery/new" }  
+        add images

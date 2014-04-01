@@ -1,0 +1,10 @@
+#content
+  .row 
+    = haml :"shared/_errors", locals: {obj: @cat}
+
+    %h2
+      New Category
+
+    %form{ action: "/admin/category", method: "post", enctype: "multipart/form-data"}
+      = haml :"admin/gallery/category/_form"
+      %input.btn{ type: "submit", value: "Save Category"}
