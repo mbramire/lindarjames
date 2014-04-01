@@ -3,7 +3,9 @@
   %head
     %title= title 
     %link{ rel: 'stylesheet', href: '/stylesheets/style.css' }
-    %link{ href: 'http://fonts.googleapis.com/css?family=Playfair+Display+SC:400,700|Fanwood+Text', rel: 'stylesheet', type: 'text/css' }
+    %script{ type: "text/javascript", src: "//use.typekit.net/kyk5hkj.js" }
+    :javascript
+      try{Typekit.load();}catch(e){}
     %link{ rel: "shortcut icon", href: "/favicon.ico", type: "image/x-icon" }
     %link{ rel: "icon", href: "/favicon.ico", type: "image/x-icon" }
     %script{ src: 'http://code.jquery.com/jquery-latest.min.js' }
