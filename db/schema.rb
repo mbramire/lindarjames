@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140402134617) do
+ActiveRecord::Schema.define(version: 20140402221242) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,8 +47,8 @@ ActiveRecord::Schema.define(version: 20140402134617) do
     t.string   "medium"
     t.string   "scale"
     t.string   "date"
-    t.string   "category_id"
     t.boolean  "homepage",    default: false
+    t.integer  "category_id"
   end
 
   create_table "posts", force: true do |t|

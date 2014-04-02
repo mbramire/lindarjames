@@ -2,7 +2,7 @@
   background: white;
   padding: 9px 15px;
   width: 100%;
-  overflow: auto;
+  overflow: hidden;
   position: absolute;
   z-index: 9999;
 }
@@ -31,7 +31,7 @@
     width: 65px;
     height: 45px;
     float: left;
-    line-height: 6em;
+    line-height: 6.5em;
     cursor: pointer;
   }
 }

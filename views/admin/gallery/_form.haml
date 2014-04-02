@@ -4,7 +4,8 @@
 
 %label{ for: "image_homepage" }
   Add to homepage?
-%input{ type: "checkbox", id: "image_homepage", name: "image[homepage]"}
+%input{ name: "image[homepage]", type: "hidden", value: "0"}
+%input{ type: "checkbox", id: "image_homepage", name: "image[homepage]", value: "1", checked: ("checked" if @image.homepage) }
 
 %label{ for: "iamge_category"}
   Category:
