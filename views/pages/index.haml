@@ -1,10 +1,10 @@
 #left-container 
   = haml :'/shared/_navigation'
-  = haml :'pages/_homepage_image', locals: { obj: @homepage_images[0] }
   = haml :'pages/_homepage_image', locals: { obj: @homepage_images[1] }
-#right-container
   = haml :'pages/_homepage_image', locals: { obj: @homepage_images[2] }
+#right-container
   = haml :'pages/_homepage_image', locals: { obj: @homepage_images[3] }
+  = haml :'pages/_homepage_image', locals: { obj: @homepage_images[4] }
 
 :javascript
   $(document).ready(function(){

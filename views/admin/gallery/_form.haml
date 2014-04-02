@@ -8,6 +8,14 @@
 %input{ type: "checkbox", id: "image_homepage", name: "image[homepage]", value: "1", checked: ("checked" if @image.homepage) }
 
 %label{ for: "iamge_category"}
+  Homepage Position:
+%select{ id: "image_position", name: "image[position]" }
+  - positions = [1,2,3,4]
+  - positions.each do |pos|
+    %option{ value: pos, selected: (@image.position == pos) }
+      = pos
+
+%label{ for: "iamge_category"}
   Category:
 %select{ id: "image_category", name: "image[category_id]" }
   - Category.all.each do |cat|

@@ -11,6 +11,15 @@ class GalleryImage < ActiveRecord::Base
   validates :category_id, presence: true
   belongs_to :category
   mount_uploader :image, ImageUploader
+
+  def self.get_homepage_images
+    images = GalleryImage.where(homepage: true)
+    sorted = {}
+    images.each do |img|
+      sorted[img[:position]] = img
+    end
+    sorted
+  end
 end
 
 class Post < ActiveRecord::Base
