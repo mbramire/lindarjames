@@ -20,3 +20,32 @@
     }
   }
 }
+
+#left-container {
+  @include span-columns(6);
+  @include omega;
+  width: 50%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: white;
+}
+
+#right-container {
+  @extend #left-container;
+  margin-left: 50%;
+}
+
+.third-box {
+  height: 33%;
+  width: 100%;
+  min-height: 150px;
+}
+
+.half-box {
+  height: 50%;
+  width: 100%;
+  min-height: 150px;
+  background: black;
+}

@@ -41,6 +41,8 @@
             Scale
           %th
             Desc.
+          %th
+            Homepage?
         - cat.gallery_images.each do |i|
           %tr
             %td.thumb
@@ -58,6 +60,8 @@
               = i.scale
             %td
               = i.description
+            %td
+              = i.homepage ? "Yes" : ""
             
     %a.btn{ href: "/admin/gallery/new" }  
       add images

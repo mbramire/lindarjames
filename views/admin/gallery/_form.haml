@@ -2,6 +2,10 @@
   Title:
 %input{ id: "image_title", name: "image[title]", type: "text", value: "#{@image.title}"}
 
+%label{ for: "image_homepage" }
+  Add to homepage?
+%input{ type: "checkbox", id: "image_homepage", name: "image[homepage]"}
+
 %label{ for: "iamge_category"}
   Category:
 %select{ id: "image_category", name: "image[category_id]" }

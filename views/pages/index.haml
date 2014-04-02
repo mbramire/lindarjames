@@ -1,4 +1,20 @@
-%img#landing{ src: "images/backgrounds/welcome.jpg" }
-#landing-page
-  #welcome-container
-    = haml :"shared/_navigation"
+#left-container 
+  = haml :'/shared/_navigation'
+  = haml :'pages/_homepage_image', locals: { obj: @homepage_images[0] }
+  = haml :'pages/_homepage_image', locals: { obj: @homepage_images[1] }
+#right-container
+  = haml :'pages/_homepage_image', locals: { obj: @homepage_images[2] }
+  = haml :'pages/_homepage_image', locals: { obj: @homepage_images[3] }
+
+:javascript
+  $(document).ready(function(){
+    $('.half-box').hover(function(){
+      $(this).children('.img-desc').fadeIn();
+    },function(){
+      $(this).children('.img-desc').fadeOut();
+    });
+
+    $('#main-nav').hover(function(){
+      $('.img-desc').fadeOut()
+    });
+  });

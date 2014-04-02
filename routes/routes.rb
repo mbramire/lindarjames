@@ -14,6 +14,7 @@ end
 
 #page routes
 get "/" do 
+  @homepage_images = GalleryImage.where(homepage: true).limit(6)
   haml :"pages/index", layout: :landing
 end
 

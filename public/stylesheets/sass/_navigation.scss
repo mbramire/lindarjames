@@ -1,19 +1,37 @@
-.main-nav {
+#nav-container {
+  background: white;
+  padding: 9px 15px;
+  width: 100%;
+  overflow: auto;
+  position: absolute;
+  z-index: 9999;
+}
+
+#main-nav {
+  color: $primary;
+
+  h1 {
+    font-size: 2em;
+    display: inline-block;
+    margin-top: 10px;
+  }
+
   a {
     color: $primary;
   }
 
   ul {
-    margin-top: 30px;
+    float: right;
+    text-align: center;
+    border-left: 1px solid $primary;
     display: inline-block;
   }
 
   li {
-    width: 75px;
-    height: 75px;
+    width: 65px;
+    height: 45px;
     float: left;
-    margin-right: 10px;
-    line-height: 6.5em;
+    line-height: 6em;
     cursor: pointer;
   }
 }
@@ -42,42 +60,18 @@
   }
 }
 
-#nav-container{
-  background: white;
-  background-image: url("/images/backgrounds/paper.jpg");
-  background-position: bottom;
-  overflow: hidden;
-
-  ul {
-    float: right;
-    text-align: center;
-    margin: 30px 15px 0;
-  }
-
-  h1 {
-    float: left;
-    margin: 35px 0 35px 15px;
-  }
-}
-
-#torn-paper {
-  background-image: url("/images/backgrounds/torn-paper.png");
-  background-repeat: repeat-x;
-  height: 20px;
-}
-
 .about-icon {
-  @include nav-background("about")
+  @include nav-background("about", 5px, 15px)
 }
 
 .comment-icon {
-  @include nav-background("commentary", 10px, 25px)
+  @include nav-background("commentary", 10px, 20px)
 }
 
 .gallery-icon {
-  @include nav-background("gallery", 10px, 25px)
+  @include nav-background("gallery", 7px, 20px)
 }
 
 .contact-icon {
-  @include nav-background("contact", 10px, 25px)
+  @include nav-background("contact", 10px, 20px)
 }
