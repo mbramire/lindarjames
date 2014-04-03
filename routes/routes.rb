@@ -19,6 +19,7 @@ get "/" do
 end
 
 get "/bio" do
+  @image = GalleryImage.order('RANDOM()').limit(1).first
   haml :"pages/bio", layout: :default
 end
 
