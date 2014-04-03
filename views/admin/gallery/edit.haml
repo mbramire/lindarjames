@@ -7,6 +7,5 @@
 
     %form{ action: "/admin/gallery/#{@image.id}", method: "post", enctype: "multipart/form-data"}
       %input{ type: "hidden", name: "_method", value: "put"}
-      = haml :"/admin/gallery/_form"
+        = haml :"/admin/gallery/_form"
       %input.btn{type: "submit", value: "Update Image"}
-    %img{ src: (@image.image.url) }

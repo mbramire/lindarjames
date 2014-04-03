@@ -1,10 +1,26 @@
-input {
+input, textarea {
   border: 1px solid gray;
   background: $light-gray;
-  padding: 5px;
-  @include inner-shadow;
+  padding: 7px;
+  @include roundcorners;
+  margin-bottom: $margin;
+  display: block;
+  font-family: "adelle", times, serif;
 
   &:-webkit-autofill {
     background-color: $light-gray;
   }
+}
+
+textarea {
+  width: 50%;
+
+  &#post_body{
+    width: 100%;
+  }
+}
+
+select {
+  display: block;
+  margin-bottom: $margin;
 }

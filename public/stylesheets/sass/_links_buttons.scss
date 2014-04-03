@@ -6,10 +6,10 @@ a {
 .btn {
   color: white;
   border: none;
-  font-size: .75em;
+  font-size: .85em;
   font-weight: bold;
-  padding: 5px 15px;
+  padding: 7px 15px;
   background: $primary;
-  @include roundcorners;
+  @include roundcorners(5px);
   display: inline-block;
 }

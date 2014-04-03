@@ -37,10 +37,17 @@
 }
 
 .admin-nav {
+  background: black;
   display: inline-block;
   width: 100%;
   color: white;
   padding: 20px;
+
+  h2 {
+    color: white;
+    float: left;
+    margin-bottom: 0;
+  }
 
   ul {
     float: right;

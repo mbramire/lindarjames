@@ -15,23 +15,23 @@ end
 #page routes
 get "/" do 
   @homepage_images = GalleryImage.get_homepage_images
-  haml :"pages/index", layout: :landing
+  haml :"pages/index", layout: :default
 end
 
 get "/bio" do
-  haml :"pages/bio"
+  haml :"pages/bio", layout: :default
 end
 
 get "/commentary" do
-  haml :"commentary/index"
+  haml :"commentary/index", layout: :default
 end
 
 get "/gallery" do
-  haml :"gallery/index"
+  haml :"gallery/index", layout: :default
 end
 
 get "/contact" do
-  haml :"pages/contact"
+  haml :"pages/contact", layout: :default
 end
 
 
@@ -203,13 +203,13 @@ delete "/admin/docs/:id" do
 end
 
 get "/admin/docs/:id/edit" do
-  @post = Post.find(params[:id])
+  @doc = Document.find(params[:id])
   haml :"admin/bio/documents/edit"
 end
 
 put "/admin/docs/:id" do
-  @post = Post.find(params[:id])
-  if @post.update_attributes(params[:doc])
+  @doc = Document.find(params[:id])
+  if @doc.update_attributes(params[:doc])
     redirect "admin/commentaries"
   else
     haml :"admin/bio/documents/edit"

@@ -13,10 +13,10 @@
       - @docs.each do |d|
         %tr
           %td.thumb
-            %a{ href: "/admin/docs/#{d.id}" }
+            %a{ href: "/admin/docs/#{d.id}/edit" }
               %img.pad-all{ src: "/images/icons/pdf.jpg" }
           %td
-            %a{ href: "/admin/docs/#{d.id}" }
+            %a{ href: "/admin/docs/#{d.id}/edit" }
               = d.title
           %td
             = d.description

@@ -21,6 +21,15 @@
   }
 }
 
+.half-container {
+  @include span-columns(6);
+  margin-right: 0;
+
+  img {
+    width: 100%;
+  }
+}
+
 #left-container {
   @include span-columns(6);
   @include omega;
