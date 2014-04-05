@@ -19,19 +19,24 @@ get "/" do
 end
 
 get "/bio" do
+  @nav = "bio"
   @image = GalleryImage.order('RANDOM()').limit(1).first
+  @docs = Document.all
   haml :"pages/bio", layout: :default
 end
 
 get "/commentary" do
+  @nav = "commentary"
   haml :"commentary/index", layout: :default
 end
 
 get "/gallery" do
+  @nav = "gallery"
   haml :"gallery/index", layout: :default
 end
 
 get "/contact" do
+  @nav = "contact"
   haml :"pages/contact", layout: :default
 end
 
@@ -48,7 +53,7 @@ end
 
 post "/login" do
   @admin = Admin.find_by(username: params[:username])
-  if @admin.authenticate(params[:password])
+  if @admin && @admin.authenticate(params[:password])
     session[:user] = @admin
     redirect "/admin/dashboard"
   else

@@ -1,9 +1,8 @@
-#content
-  %ul
-  - @gallery.each do |i|
-    %li
-      i.title
-    %li
-      i.image
-    %li
-      i.description
+#left-container 
+  = haml :'/shared/_navigation'
+  .row.content
+    %h2
+      Gallery
+      
+#right-container.img-bg{ style: "background-image: url('/images/backgrounds/welcome.jpg')" }
+

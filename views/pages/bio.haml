@@ -1,6 +1,23 @@
 #left-container 
   = haml :'/shared/_navigation'
-  %h2
-    Biography
-#right-container.img-bg{ style: "background-image: url(#{@image.image.url})"}
+  .row.content
+    %h2
+      Biography
+    %p
+      This is the bio text it is going to be approximately five hundred words. The number of words in this paragraph is twenty five. This is the bio text it is going to be approximately five hundred words. The number of words in this paragraph is twenty five. This is the bio text it is going to be approximately five hundred words. The number of words in this paragraph is twenty five. This is the bio text it is going to be approximately five hundred words. The number of words in this paragraph is twenty five. This is the bio text it is going to be approximately five hundred words. The number of words in this paragraph is twenty five. This is the bio text it is going to be approximately five hundred words. The number of words in this paragraph is twenty five. This is the bio text it is going to be approximately five hundred words. The number of words in this paragraph is twenty five. This is the bio text it is going to be approximately five hundred words. The number of words in this paragraph is twenty five. This is the bio text it is going to be approximately five hundred words. The number of words in this paragraph is twenty five. This is the bio text it is going to be approximately five hundred words. The number of words in this paragraph is twenty five.
+    
+    - unless @docs.nil?
+      %h2.margin-top-large
+        Documents
+
+      - @docs.each do |doc|
+        %a{ href: "#{doc.doc.url}"}
+          .doc-container
+            %img{ src: "/images/icons/pdf.png" }
+            %h3
+              = doc.title
+            %p
+              = doc.description
+
+#right-container.img-bg{ style: "background-image: url('/images/backgrounds/welcome.jpg')" }
 

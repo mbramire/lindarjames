@@ -5,19 +5,19 @@
         Linda R. James
     %ul
       %a{ href: "/bio" }
-        %li.about-icon
+        %li.about-icon{ class: ("selected" if @nav == "bio") }
           %span.hide
             biography
       %a{ href: "/gallery" }
-        %li.gallery-icon
+        %li.gallery-icon{ class: ("selected" if @nav == "gallery") }
           %span.hide
             gallery
       %a{ href: "/commentary" }
-        %li.comment-icon
+        %li.comment-icon{ class: ("selected" if @nav == "commentary") }
           %span.hide
             commentary
       %a{ href: "/contact" } 
-        %li.contact-icon
+        %li.contact-icon{ class: ("selected" if @nav == "contact") }
           %span.hide
             contact
 

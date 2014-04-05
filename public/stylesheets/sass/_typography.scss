@@ -9,16 +9,17 @@ body {
 h1 {
   font-size: 3em;
   color: black;
-  font-weight: 500;
+  font-weight: bold;
 }
 
 h2 {
   font-size: 1.5em;
-  font-weight: 500;
-  margin-bottom: $margin
+  font-weight: bold;
+  margin-bottom: $margin;
 }
 
 h3 {
   @extend h2;
-  font-size: 1em;
+  font-weight: bold;
+  font-size: 1.2em;
 }
