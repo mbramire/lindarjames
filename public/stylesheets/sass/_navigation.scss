@@ -1,10 +1,10 @@
 #nav-container {
-  background: $light-gray;
   padding: 20px 0 20px 20px;
   width: 100%;
   overflow: hidden;
   position: absolute;
   z-index: 9999;
+  border-bottom: 1px solid $light-gray;
 }
 
 #main-nav {
