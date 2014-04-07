@@ -20,7 +20,6 @@ end
 
 get "/bio" do
   @nav = "bio"
-  @image = GalleryImage.order('RANDOM()').limit(1).first
   @docs = Document.all
   haml :"pages/bio", layout: :default
 end
