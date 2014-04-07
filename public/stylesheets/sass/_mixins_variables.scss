@@ -9,10 +9,10 @@ $margin: 15px;
   background-image: url("/images/icons/nav-sprite.png");
   background-position: $y $x;
   background-repeat: no-repeat;
-  background-size: 185%;
+  background-size: 155%;
 
   &:hover, &.selected {
-    background-position: ($y - 76) $x;
+    background-position: ($y - 63) $x;
   }
 }
 

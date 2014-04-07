@@ -14,6 +14,7 @@
     font-size: 2em;
     display: inline-block;
     margin-top: 10px;
+    font-family: "acta", times, serif;
   }
 
   a {
@@ -74,13 +75,13 @@
 }
 
 .comment-icon {
-  @include nav-background(15px, -115px)
+  @include nav-background(21px, -95px)
 }
 
 .gallery-icon {
-  @include nav-background(20px, -175px)
+  @include nav-background(21px, -145px)
 }
 
 .contact-icon {
-  @include nav-background(15px, -55px)
+  @include nav-background(20px, -45px)
 }

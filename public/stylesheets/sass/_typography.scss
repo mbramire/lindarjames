@@ -9,17 +9,18 @@ body {
 h1 {
   font-size: 3em;
   color: black;
-  font-weight: bold;
 }
 
 h2 {
   font-size: 1.5em;
-  font-weight: bold;
   margin-bottom: $margin;
 }
 
 h3 {
   @extend h2;
-  font-weight: bold;
   font-size: 1.2em;
+}
+
+p {
+  margin-bottom: 15px;
 }
