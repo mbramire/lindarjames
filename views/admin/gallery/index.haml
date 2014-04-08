@@ -23,7 +23,7 @@
   .row.margin-bottom-large
     %h2.pull-left
       Images
-
+      
     - @cat.each do |cat|
       %h3.pull-right
         = cat.name
@@ -62,6 +62,14 @@
               = i.description
             %td
               = i.homepage ? "Yes (position #{i.position})" : ""
-            
+           
     %a.btn{ href: "/admin/gallery/new" }  
       add images
+
+  - unless @nocat.empty?
+    .row
+      %h2
+        Images not in a category
+      - @nocat.each do |no|
+        %a{ href: "/admin/gallery/#{no.id}/edit"}
+          %img{ src: (no.image.thumb.url), alt: "Linda R James - #{no.title}" }

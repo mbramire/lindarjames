@@ -73,6 +73,7 @@ end
 #gallery
 get "/admin/gallery" do
   @cat = Category.all
+  @nocat = GalleryImage.where(category_id: false)
   haml :"admin/gallery/index"
 end
 
@@ -125,7 +126,11 @@ post "/admin/category" do
 end
 
 delete "/admin/gallery/category/:id" do
-  Category.find(params[:id]).destroy
+  cat = Category.find(params[:id])
+  cat.gallery_images.each do |img|
+    img.update_attributes(category_id: false)
+  end
+  cat.destroy
   redirect "admin/gallery"
 end
 

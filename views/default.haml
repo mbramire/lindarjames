@@ -9,5 +9,6 @@
     %link{ rel: "shortcut icon", href: "/favicon.ico", type: "image/x-icon" }
     %link{ rel: "icon", href: "/favicon.ico", type: "image/x-icon" }
     %script{ src: 'http://code.jquery.com/jquery-latest.min.js' }
-  %body     
+  %body  
+    = haml :'/shared/_navigation'   
     = yield

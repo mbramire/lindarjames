@@ -14,16 +14,20 @@
     Date:
   %input{ id: "image_date", name: "image[date]", type: "text", value: "#{@image.date}"}
 
-  %label{ for: "image_scale"}
+  %label{ for: "image_medium"}
     Medium:
-  %input{ id: "image_scale", name: "image[medium]", type: "text", value: "#{@image.medium}"}
+  %input{ id: "image_medium", name: "image[medium]", type: "text", value: "#{@image.medium}"}
+
+  %label{ for: "image_scale"}
+    Scale:
+  %input{ id: "image_scale", name: "image[scale]", type: "text", value: "#{@image.scale}"}
 
   %label{ for: "description"}
     Description:
   %textarea{ id: "description", name: "image[description]", rows: "10" }
     = @image.description
 
-.half-container
+.half-container{ style: "height: 500px;"}
   - unless @image.image.url.nil?
     %img{ src: (@image.image.url) }
   %label{ for: "image"}

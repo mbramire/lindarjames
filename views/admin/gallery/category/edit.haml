@@ -9,3 +9,7 @@
       %input{ type: "hidden", name: "_method", value: "put"}
       = haml :"/admin/gallery/category/_form"
       %input.btn{type: "submit", value: "Update Category"}
+
+    %form{ action: "/admin/gallery/category/#{@cat.id}", onsubmit: "return confirm('Are you sure you want to delete?');", method: "post" }
+      %input{ type: "hidden", name: "_method", value: "delete" }
+      %input.btn{ type: "submit", value: "Delete"}
