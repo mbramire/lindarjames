@@ -7,9 +7,56 @@
         = cat.description
       .gallery-thumbs
         - cat.gallery_images.each do |img|
-          %img{ src: "#{img.image.thumb.url}", data: (img.id) }
+          %img{ src: "#{img.image.thumb.url}", data: {img: (img.id)} }
 
       
 #right-container.gallery
-  %img{ src: "#{@image.image.url}" }
+  #img-container
+    %img{ src: "#{@image.image.url}" }
+    %ul
+      %li
+        %h1
+          = @image.title
+      %li.img-date
+        = @image.date
+      %li.img-medium
+        = @image.medium
+      %li.img-scale
+        = @image.scale
+    %p.img-desc
+      = @image.description
 
+:javascript
+  $(document).ready(function(){
+
+    $(".gallery-thumbs img").on("click", function(){
+      getImage($(this))
+    });
+
+    function getImage(thumb){
+      var url = "/gallery/" + thumb.data("img");
+      
+      var ajaxCall = $.ajax({
+        url: url,
+        data: "html",
+        success: function(data){
+          var newImage = $($.parseXML(data)),
+            title = newImage.find("title"),
+            scale = newImage.find("scale"),
+            medium = newImage.find("medium"),
+            date = newImage.find("date"),
+            image = $('.gallery img'),
+            url = newImage.find("image").children("url").text(),
+            title = newImage.find("title").text();
+
+          
+          image.attr("src", url);
+          $('.img-title').html(title);
+          $('.img-scale').html(scale);
+          $('.img-medium').html(medium);
+          $('.img-date').html(date);
+        }
+      });
+    }
+
+  });

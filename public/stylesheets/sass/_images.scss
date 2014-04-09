@@ -58,3 +58,13 @@ img.bg {
     margin-left: -512px;   /* 50% */
   }
 }
+
+#img-container {
+  text-align: center;
+  margin-top: 56px;
+  padding: 50px;
+
+  h1 {
+    color: $primary;
+  }
+}

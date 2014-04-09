@@ -36,6 +36,10 @@ get "/gallery" do
   haml :"gallery/index", layout: :default
 end
 
+get "/gallery/:id" do
+  @image = GalleryImage.find(params[:id]).to_xml
+end
+
 get "/contact" do
   @nav = "contact"
   haml :"pages/contact", layout: :default
