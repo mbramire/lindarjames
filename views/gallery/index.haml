@@ -1,8 +1,15 @@
-#left-container 
-  = haml :'/shared/_navigation'
-  .row.content
-    %h2
-      Gallery
+#left-container.one-third 
+  - @category.each do |cat|
+    .row.content
+      %h2
+        = cat.name
+      %p
+        = cat.description
+      .gallery-thumbs
+        - cat.gallery_images.each do |img|
+          %img{ src: "#{img.image.thumb.url}", data: (img.id) }
+
       
-#right-container.img-bg{ style: "background-image: url('/images/backgrounds/welcome.jpg')" }
+#right-container.gallery
+  %img{ src: "#{@image.image.url}" }
 

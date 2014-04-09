@@ -30,6 +30,8 @@ get "/commentary" do
 end
 
 get "/gallery" do
+  @category = Category.includes(:gallery_images)
+  @image = @category.first.gallery_images.first
   @nav = "gallery"
   haml :"gallery/index", layout: :default
 end
