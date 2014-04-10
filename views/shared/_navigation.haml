@@ -1,25 +1,24 @@
-#nav-container
-  %nav#main-nav
-    %a{ href: "/"}
-      %h1
-        Linda R. James
-    %ul
-      %a{ href: "/bio" }
-        %li.about-icon{ class: ("selected" if @nav == "bio") }
-          %span.hide
-            biography
-      %a{ href: "/gallery" }
-        %li.gallery-icon{ class: ("selected" if @nav == "gallery") }
-          %span.hide
-            gallery
-      %a{ href: "/commentary" }
-        %li.comment-icon{ class: ("selected" if @nav == "commentary") }
-          %span.hide
-            commentary
-      %a{ href: "/contact" } 
-        %li.contact-icon{ class: ("selected" if @nav == "contact") }
-          %span.hide
-            contact
+%nav#main-nav
+  %a{ href: "/"}
+    %h1
+      Linda R. James
+  %ul
+    %a{ href: "/bio" }
+      %li.about-icon{ class: ("selected" if @nav == "bio") }
+        %span.hide
+          biography
+    %a{ href: "/gallery" }
+      %li.gallery-icon{ class: ("selected" if @nav == "gallery") }
+        %span.hide
+          gallery
+    %a{ href: "/commentary" }
+      %li.comment-icon{ class: ("selected" if @nav == "commentary") }
+        %span.hide
+          commentary
+    %a{ href: "/contact" } 
+      %li.contact-icon{ class: ("selected" if @nav == "contact") }
+        %span.hide
+          contact
 
 :javascript
 $(document).ready(function(){

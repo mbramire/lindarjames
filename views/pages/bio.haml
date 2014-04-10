@@ -1,5 +1,16 @@
 #left-container 
-  .row.content
+  %nav.subnav
+    %ul
+      %li
+        %a{ data: {target: "biography"}}
+          biography
+      - unless @docs.nil?
+        %li
+          |
+        %li
+          %a{ data: {target: "documents"}}
+            documents
+  .row.content{ data: {type: "biography"}}
     %h2
       Biography
     %p
@@ -17,18 +28,27 @@
     %p
       Nullam hendrerit lorem quis condimentum malesuada. Fusce posuere tortor vitae elit mattis, ut commodo odio dapibus. Sed fringilla orci massa, nec posuere orci ultrices sed. Cras blandit pellentesque nibh, ac eleifend metus posuere consequat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec a blandit turpis. Etiam eu metus dolor.
     
-    - unless @docs.nil?
-      %h2.margin-top-large
-        Documents
+  .row.hide.content{ data: {type: "documents"}}
+    %h2
+      Documents
 
-      - @docs.each do |doc|
-        %a{ href: "#{doc.doc.url}"}
-          .doc-container
-            %img{ src: "/images/icons/pdf.png" }
-            %h3
-              = doc.title
-            %p
-              = doc.description
+    - @docs.each do |doc|
+      %a{ href: "#{doc.doc.url}"}
+        .doc-container
+          %img{ src: "/images/icons/pdf.png" }
+          %h3
+            = doc.title
+          %p
+            = doc.description
 
 %img.bg{ src: "/images/backgrounds/bio.jpg" }
+
+:javascript
+  $(document).ready(function(){
+    $(".subnav a").on("click", function(){
+      var target = $(this).data("target");
+      $(".content").hide();
+      $("[data-type="+target+"]").show();
+    });
+  });
 

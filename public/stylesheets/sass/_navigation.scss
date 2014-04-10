@@ -1,15 +1,13 @@
-#nav-container {
+#main-nav {
+  color: $primary;
   background: rgba(255,255,255,0.95);
   position: fixed;
+  top: 0;
   padding: 5px 0 5px 20px;
   width: 100%;
   overflow: hidden;
   z-index: 9999;
   border-bottom: 1px solid $light-gray;
-}
-
-#main-nav {
-  color: $primary;
 
   h1 {
     font-size: 2em;
@@ -37,6 +35,35 @@
     float: left;
     line-height: 6.5em;
     cursor: pointer;
+  }
+}
+
+.subnav {
+  position: fixed;
+  width: 50%;
+  padding: 0 20px 20px;
+  color: $primary;
+  border-bottom: 1px solid $light-gray;
+  background: white;
+  font-size: 1.25em;
+  margin-top: 55px;
+
+  ul {
+    overflow: auto;
+  }
+
+  li {
+    float: left;
+    margin-right: 20px;
+    margin-top: 20px;
+
+    a {
+      color: black;
+    }
+  }
+
+  .selected {
+
   }
 }
 
