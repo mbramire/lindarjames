@@ -3,7 +3,7 @@
   background: rgba(255,255,255,0.95);
   position: fixed;
   top: 0;
-  padding: 5px 0 5px 20px;
+  padding: 9px 0 9px 20px;
   width: 100%;
   overflow: hidden;
   z-index: 9999;
@@ -39,14 +39,15 @@
 }
 
 .subnav {
-  position: fixed;
-  width: 50%;
+  width: 100%;
   padding: 0 20px 20px;
   color: $primary;
   border-bottom: 1px solid $light-gray;
   background: white;
-  font-size: 1.25em;
-  margin-top: 55px;
+  font-size: 1.1em;
+  margin-top: 64px;
+  position: fixed;
+  z-index: 1;
 
   ul {
     overflow: auto;
@@ -58,12 +59,14 @@
     margin-top: 20px;
 
     a {
-      color: black;
+      color: lighten(black, 50%);
+      cursor: pointer;
+      cursor: hand;
+
+      &.selected {
+        color: black;
+      }
     }
-  }
-
-  .selected {
-
   }
 }
 

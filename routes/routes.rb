@@ -20,6 +20,11 @@ end
 
 get "/bio" do
   @nav = "bio"
+  haml :"pages/bio", layout: :default
+end
+
+get "/documents" do
+  @nav = "documents"
   @docs = Document.all
   haml :"pages/bio", layout: :default
 end
@@ -30,13 +35,22 @@ get "/commentary" do
 end
 
 get "/gallery" do
-  @category = Category.includes(:gallery_images)
-  @image = @category.first.gallery_images.first
+  @categories = Category.all
+  @category = @categories.first
+  @image = @category.gallery_images.first
   @nav = "gallery"
   haml :"gallery/index", layout: :default
 end
 
 get "/gallery/:id" do
+  @categories = Category.all
+  @category = Category.find(params[:id])
+  @image = @category.gallery_images.first
+  @nav = "gallery"
+  haml :"gallery/index", layout: :default
+end
+
+get "/galleryget/:id" do
   @image = GalleryImage.find(params[:id]).to_xml
 end
 

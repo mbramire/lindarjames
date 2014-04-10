@@ -1,54 +1,44 @@
-#left-container 
-  %nav.subnav
-    %ul
+%nav.subnav
+  %ul
+    %li
+      %a{ href: "/bio", class: ("selected" if @nav == "bio") }
+        biography
       %li
-        %a{ data: {target: "biography"}}
-          biography
-      - unless @docs.nil?
-        %li
-          |
-        %li
-          %a{ data: {target: "documents"}}
-            documents
-  .row.content{ data: {type: "biography"}}
-    %h2
-      Biography
-    %p
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et pellentesque odio. Duis turpis orci, malesuada et tempor non, tristique ac metus. Cras tellus dolor, fringilla quis mattis in, congue ut mauris. In hac habitasse platea dictumst. Cras sodales lacus ac lectus molestie interdum. Ut eros elit, posuere eget rutrum nec, porttitor vitae ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
-    %p
-      Nullam eget laoreet urna. Nam mauris nisi, euismod eget mollis sit amet, dapibus et enim. Mauris fringilla et dui sit amet condimentum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis fermentum sollicitudin odio at dignissim. Donec leo dui, volutpat eget dapibus eget, laoreet pretium est. Aenean aliquet sed nisl sed porttitor. Quisque non interdum orci. Donec et eleifend mi. Sed porta consequat malesuada. Donec lacus ipsum, sollicitudin et magna sed, pellentesque imperdiet neque. Praesent dictum luctus mi nec hendrerit. Proin in enim sodales, lobortis dolor ut, malesuada lacus.
-    %p
-      Nunc et quam eleifend, tempus mi eu, pharetra orci. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean ac accumsan tortor, at pulvinar neque. Nulla sed viverra ligula. Maecenas at consectetur odio. Sed quis est quis felis tristique adipiscing in vitae ligula. Nam eget leo gravida dui molestie aliquam. Vivamus nec fringilla ligula. Phasellus et enim felis. Duis a magna sit amet arcu bibendum sodales a nec dui.
-    %p
-      In eget augue eleifend, varius nulla nec, pulvinar neque. Aenean posuere velit eget metus mollis vulputate. Aliquam aliquet mauris vitae felis malesuada, vel hendrerit massa adipiscing. Cras pulvinar ornare tincidunt. Donec eu massa ut tortor mollis consequat. Cras consequat bibendum laoreet. Donec condimentum, massa sed euismod aliquet, urna enim fringilla enim, eu egestas massa dolor eu leo. Donec tortor nisi, ornare tincidunt lorem et, varius pellentesque lacus.
-    %p
-      Cras pellentesque, nunc eu semper faucibus, magna turpis malesuada urna, non fringilla ante nulla at elit. Integer nisl eros, euismod ut justo et, ornare suscipit ligula. Vivamus venenatis sagittis rhoncus. Phasellus feugiat fermentum mi nec facilisis. Pellentesque scelerisque quam non laoreet ornare. Sed at dolor sed arcu faucibus pellentesque nec vitae velit. Donec viverra faucibus convallis. Nunc auctor est vitae gravida pulvinar. Integer auctor orci massa. Nulla ac pulvinar lorem. Donec tempor ultrices massa sit amet gravida.
-    %p
-      Sed hendrerit tincidunt magna et scelerisque. Nam eleifend rutrum felis, eu convallis dolor auctor at. Pellentesque pharetra elit diam, vel elementum nisl feugiat eget. Sed diam lectus, convallis vitae elementum vel, porta a ligula. In fringilla, libero a bibendum congue, lorem lectus elementum tellus, at cursus mauris nulla sit amet ligula. Sed ut dolor id massa dictum malesuada eu sed lectus. Etiam ultricies varius nibh non tincidunt.
-    %p
-      Nullam hendrerit lorem quis condimentum malesuada. Fusce posuere tortor vitae elit mattis, ut commodo odio dapibus. Sed fringilla orci massa, nec posuere orci ultrices sed. Cras blandit pellentesque nibh, ac eleifend metus posuere consequat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec a blandit turpis. Etiam eu metus dolor.
-    
-  .row.hide.content{ data: {type: "documents"}}
-    %h2
-      Documents
+        |
+      %li
+        %a{ href: "/documents", class: ("selected" if @nav == "documents") }
+          documents
+#left-container 
+  - if @nav == "documents" 
+    .row.content{ data: {type: "documents"}}
+      %h2
+        Documents
 
-    - @docs.each do |doc|
-      %a{ href: "#{doc.doc.url}"}
-        .doc-container
-          %img{ src: "/images/icons/pdf.png" }
-          %h3
-            = doc.title
-          %p
-            = doc.description
+      - @docs.each do |doc|
+        %a{ href: "#{doc.doc.url}"}
+          .doc-container
+            %img{ src: "/images/icons/pdf.png" }
+            %h3
+              = doc.title
+            %p
+              = doc.description
+  - else
+    .row.content
+      %h2
+        Biography
+      %p
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et pellentesque odio. Duis turpis orci, malesuada et tempor non, tristique ac metus. Cras tellus dolor, fringilla quis mattis in, congue ut mauris. In hac habitasse platea dictumst. Cras sodales lacus ac lectus molestie interdum. Ut eros elit, posuere eget rutrum nec, porttitor vitae ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+      %p
+        Nullam eget laoreet urna. Nam mauris nisi, euismod eget mollis sit amet, dapibus et enim. Mauris fringilla et dui sit amet condimentum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis fermentum sollicitudin odio at dignissim. Donec leo dui, volutpat eget dapibus eget, laoreet pretium est. Aenean aliquet sed nisl sed porttitor. Quisque non interdum orci. Donec et eleifend mi. Sed porta consequat malesuada. Donec lacus ipsum, sollicitudin et magna sed, pellentesque imperdiet neque. Praesent dictum luctus mi nec hendrerit. Proin in enim sodales, lobortis dolor ut, malesuada lacus.
+      %p
+        Nunc et quam eleifend, tempus mi eu, pharetra orci. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean ac accumsan tortor, at pulvinar neque. Nulla sed viverra ligula. Maecenas at consectetur odio. Sed quis est quis felis tristique adipiscing in vitae ligula. Nam eget leo gravida dui molestie aliquam. Vivamus nec fringilla ligula. Phasellus et enim felis. Duis a magna sit amet arcu bibendum sodales a nec dui.
+      %p
+        In eget augue eleifend, varius nulla nec, pulvinar neque. Aenean posuere velit eget metus mollis vulputate. Aliquam aliquet mauris vitae felis malesuada, vel hendrerit massa adipiscing. Cras pulvinar ornare tincidunt. Donec eu massa ut tortor mollis consequat. Cras consequat bibendum laoreet. Donec condimentum, massa sed euismod aliquet, urna enim fringilla enim, eu egestas massa dolor eu leo. Donec tortor nisi, ornare tincidunt lorem et, varius pellentesque lacus.
+      %p
+        Cras pellentesque, nunc eu semper faucibus, magna turpis malesuada urna, non fringilla ante nulla at elit. Integer nisl eros, euismod ut justo et, ornare suscipit ligula. Vivamus venenatis sagittis rhoncus. Phasellus feugiat fermentum mi nec facilisis. Pellentesque scelerisque quam non laoreet ornare. Sed at dolor sed arcu faucibus pellentesque nec vitae velit. Donec viverra faucibus convallis. Nunc auctor est vitae gravida pulvinar. Integer auctor orci massa. Nulla ac pulvinar lorem. Donec tempor ultrices massa sit amet gravida.
+      %p
+        Sed hendrerit tincidunt magna et scelerisque. Nam eleifend rutrum felis, eu convallis dolor auctor at. Pellentesque pharetra elit diam, vel elementum nisl feugiat eget. Sed diam lectus, convallis vitae elementum vel, porta a ligula. In fringilla, libero a bibendum congue, lorem lectus elementum tellus, at cursus mauris nulla sit amet ligula. Sed ut dolor id massa dictum malesuada eu sed lectus. Etiam ultricies varius nibh non tincidunt.
+      %p
+        Nullam hendrerit lorem quis condimentum malesuada. Fusce posuere tortor vitae elit mattis, ut commodo odio dapibus. Sed fringilla orci massa, nec posuere orci ultrices sed. Cras blandit pellentesque nibh, ac eleifend metus posuere consequat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec a blandit turpis. Etiam eu metus dolor.
 
 %img.bg{ src: "/images/backgrounds/bio.jpg" }
-
-:javascript
-  $(document).ready(function(){
-    $(".subnav a").on("click", function(){
-      var target = $(this).data("target");
-      $(".content").hide();
-      $("[data-type="+target+"]").show();
-    });
-  });
-

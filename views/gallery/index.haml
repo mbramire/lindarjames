@@ -1,45 +1,47 @@
 #thumb-container 
-  - @category.each do |cat|
-    .row.content
-      %h2
-        = cat.name
-      %p
-        = cat.description
-      .gallery-thumbs
-        - cat.gallery_images.each do |img|
-          %img{ src: "#{img.image.thumb.url}", data: {img: (img.id)}, class: "selected"}
-
+  %nav.subnav
+    %ul
+      - @categories.each do |cat|
+        %li
+          %a{ href: "/gallery/#{cat.id}", class: ("selected" if cat == @category) }
+            = cat.name
+        - unless cat === @categories.last
+          %li
+            |
+  .row.gallery-thumbs
+    %p
+      = @category.description
+    - @category.gallery_images.each do |img|
+      %img{ src: "#{img.image.thumb.url}", data: {img: (img.id)}, class: "selected"}
       
 #gallery
-  #image-info
-    %h2{ data: {type: "title"} }
-      = @image.title
-    %ul
-      %li.img-date{ data: {type: "date"} }
-        = @image.date
-      %li.img-medium{ data: {type: "medium"} }
-        = @image.medium
-      %li.img-scale{ data: {type: "scale"} }
-        = @image.scale
+  .img-container
+    #image-info
+      %h2{ data: {type: "title"} }
+        = @image.title
+      %ul
+        %li.img-date{ data: {type: "date"} }
+          = @image.date
+        %li.img-medium{ data: {type: "medium"} }
+          = @image.medium
+        %li.img-scale{ data: {type: "scale"} }
+          = @image.scale
+    %img#loading.hide{ src: "/images/icons/loading.gif"}
+    %img.painting{ src: "#{@image.image.url}" }
     %p.img-description{ data: {type: "description"} }
       = @image.description
-
-  #img-wrapper
-    .img-container
-      / #loading-container
-      /   %img{ src: "/images/icons/loading.gif"}
-      %img{ src: "#{@image.image.url}" }
 
 :javascript
   $(document).ready(function(){
 
     $(".gallery-thumbs img").on("click", function(){
-      $("#loading-container").show();
+      $("#loading").show();
+      $(".painting").css("opacity", "0.3");
       getImage($(this))
     });
 
     function getImage(thumb){
-      var url = "/gallery/" + thumb.data("img");
+      var url = "/galleryget/" + thumb.data("img");
       
       $.ajax({
         url: url,
@@ -48,7 +50,7 @@
           var newImage = $($.parseXML(data)),
             columns = ["title", "scale", "medium", "description", "date"],
             url = newImage.find("image").children("url").text();
-            image = $('.img-container>img');
+            image = $('img.painting');
           
           for(var i=0; i < columns.length; i++){
             console.log("[data-type="+columns[i]+"]");
@@ -57,7 +59,8 @@
 
           image.attr("src", url);
           image.load(function(){
-            $("#loading-container").hide();
+            $("#loading").hide();
+            $(".painting").css("opacity", "1.0");
           })
         }
       });

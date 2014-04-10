@@ -7,6 +7,7 @@
 
 .row {
   @include outer-container;
+  padding: 25px;
 
   .sml-gray-box {
     @include span-columns(4);
@@ -21,9 +22,12 @@
   }
 
   &.content {
-    margin-top: 135px;
+    margin-top: 155px;
     max-width: 500px;
-    padding: 25px;
+  }
+
+  &.gallery-thumbs {
+    margin-top: 130px;
   }
 }
 
@@ -81,49 +85,57 @@
     margin-left: 67px;
     color: black;
   }
+
+  h3 {
+    margin: 0 0 2px 67px;
+  }
 }
 
 #thumb-container {
-  width: 150px;
-  background: white;
   float: left;
+  width: 30%;
+  height: 100%;
+  background: white;
+}
+
+#image-info {
+  background: lighten(black, 20%);
+  width: 100%;
+  color: white;
+  padding: 20px;
+  overflow: auto;
+
+  h2 {
+    color: $primary;
+    float: left;
+    margin-bottom: 0;
+  }
+
+  li {
+    margin-left: 20px;
+    float: left;
+  }
 }
 
 #gallery {
   background: black;
-  position: absolute;
-  left: 150px;
   height: 100%;
-  width: 100%;
+  width: 70%;
+  position: absolute;
+  right: 0;
 
-  #image-info {
-    float: left;
-    background: lighten(black, 15%);
-    height: 100%;
-    width: 150px;
-    color: white;
-    padding: 20px;
+  .img-container {
+    text-align: center;
+    margin-top: 125px;
+    background: black;
 
-    h2 {
-      margin-top: 100px;
-      color: $primary
+    img.painting {
+      width: 100%;
     }
 
-    li {
-      border-left: 1px solid $primary;
-      padding-left: 5px;
-      margin: 20px 0;
-    }
-  }
-
-  #img-wrapper {
-  margin-top: 56px;
-  padding: 50px;
-  color: white;
-  text-align: center;
-
-    .img-container {
-      height: 600px;
+    #loading {
+      position: absolute;
+      margin-top: 30%;
     }
   }
 }
