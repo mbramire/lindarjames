@@ -1,8 +1,13 @@
+= haml :'/commentary/_subnav'
+
 #left-container 
   = haml :'/shared/_navigation'
   .row.content
     %h2
-      Commentary
+      = @commentary.title
+    = pretty_date(@commentary.created_at)
+    %p
+      = @commentary.content
       
-#right-container.img-bg{ style: "background-image: url('/images/backgrounds/welcome.jpg')" }
+%img.bg{ src: "/images/backgrounds/commentary.jpg" }
 

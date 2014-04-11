@@ -1,0 +1,11 @@
+%nav.subnav
+  %ul
+    - @commentaries.each do |c|
+      %li
+        %a{ href: "/commentary/#{c.id}", class: ("selected" if c == @commentary) }
+          = c.title
+      %li
+        |
+    %li
+      %a{ href: "/commentary/all"}
+        All Commentaries

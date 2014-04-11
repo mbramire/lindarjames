@@ -31,6 +31,15 @@ end
 
 get "/commentary" do
   @nav = "commentary"
+  @commentaries = Post.order("created_at DESC").limit(8)
+  @commentary = @commentaries.first
+  haml :"commentary/index", layout: :default
+end
+
+get "/commentary/:id" do
+  @nav = "commentary"
+  @commentaries = Post.order("created_at DESC").limit(8)
+  @commentary = Post.find(params[:id])
   haml :"commentary/index", layout: :default
 end
 
@@ -46,6 +55,14 @@ get "/gallery/:id" do
   @categories = Category.all
   @category = Category.find(params[:id])
   @image = @category.gallery_images.first
+  @nav = "gallery"
+  haml :"gallery/index", layout: :default
+end
+
+get "/image/:id" do
+  @categories = Category.all
+  @image = GalleryImage.find(params[:id])
+  @category = @image.category
   @nav = "gallery"
   haml :"gallery/index", layout: :default
 end

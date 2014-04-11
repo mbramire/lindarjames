@@ -12,7 +12,7 @@
     %p
       = @category.description
     - @category.gallery_images.each do |img|
-      %img{ src: "#{img.image.thumb.url}", data: {img: (img.id)}, class: "selected"}
+      %img.cursor{ src: "#{img.image.thumb.url}", class: ("selected" if img == @image), data: {img: (img.id)}}
       
 #gallery
   .img-container
@@ -22,14 +22,23 @@
       %ul
         %li.img-date{ data: {type: "date"} }
           = @image.date
-        %li.img-medium{ data: {type: "medium"} }
-          = @image.medium
-        %li.img-scale{ data: {type: "scale"} }
-          = @image.scale
+        - unless @image.medium.blank?
+          %li.img-medium{ data: {type: "medium"} }
+            %img{ src: "/images/icons/medium.png" }
+            = @image.medium
+        - unless @image.scale.blank?
+          %li.img-scale{ data: {type: "scale"} }
+            %img{ src: "/images/icons/scale.png" }
+            = @image.scale
+        - unless @image.description.blank?
+          %li.cursor{ data: {type: "info"} }
+            %img{ src: "/images/icons/page.png" }
+            read more...
+    #desc-container.hide
+      %p{ data: {type: "description"} }
+        = @image.description
     %img#loading.hide{ src: "/images/icons/loading.gif"}
     %img.painting{ src: "#{@image.image.url}" }
-    %p.img-description{ data: {type: "description"} }
-      = @image.description
 
 :javascript
   $(document).ready(function(){
@@ -37,6 +46,8 @@
     $(".gallery-thumbs img").on("click", function(){
       $("#loading").show();
       $(".painting").css("opacity", "0.3");
+      $(".selected").removeClass("selected");
+      $(this).addClass("selected");
       getImage($(this))
     });
 
@@ -65,5 +76,9 @@
         }
       });
     }
+
+    $("[data-type=info], #desc-container").on("click", function(){
+      $("#desc-container").slideToggle();
+    })
 
   });
