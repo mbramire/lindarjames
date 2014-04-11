@@ -22,14 +22,10 @@
       %ul
         %li.img-date{ data: {type: "date"} }
           = @image.date
-        - unless @image.medium.blank?
-          %li.img-medium{ data: {type: "medium"} }
-            %img{ src: "/images/icons/medium.png" }
-            = @image.medium
-        - unless @image.scale.blank?
-          %li.img-scale{ data: {type: "scale"} }
-            %img{ src: "/images/icons/scale.png" }
-            = @image.scale
+        %li.img-medium{ data: {type: "medium"} }
+          = @image.medium
+        %li.img-scale{ data: {type: "scale"} }
+          = @image.scale
         - unless @image.description.blank?
           %li.cursor{ data: {type: "info"} }
             %img{ src: "/images/icons/page.png" }

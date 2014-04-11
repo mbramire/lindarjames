@@ -3,3 +3,13 @@
   color: white;
   padding: 20px;
 }
+
+.error-list {
+  color: red;
+  line-height: 2em;
+
+  li {
+    background: url("/images/icons/error.png") no-repeat left center;
+    padding-left: 25px;
+  }
+}

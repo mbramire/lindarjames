@@ -11,7 +11,6 @@ before "/admin/*" do
   end
 end
 
-
 #page routes
 get "/" do 
   @homepage_images = GalleryImage.get_homepage_images
@@ -39,7 +38,11 @@ end
 get "/commentary/:id" do
   @nav = "commentary"
   @commentaries = Post.order("created_at DESC").limit(8)
-  @commentary = Post.find(params[:id])
+  if params[:id] == "all"
+    @all = Post.all.order("created_at DESC")
+  else
+    @commentary = Post.find(params[:id])
+  end
   haml :"commentary/index", layout: :default
 end
 
@@ -71,11 +74,26 @@ get "/galleryget/:id" do
   @image = GalleryImage.find(params[:id]).to_xml
 end
 
+#contact Form
 get "/contact" do
   @nav = "contact"
   haml :"pages/contact", layout: :default
 end
 
+post "/contact" do
+  @contact = Contact.new(params[:contact])
+  if @contact.valid?
+    Pony.mail({
+      to: 'eudaemonia1968@gmail.com',
+      from: @contact.your_email,
+      subject: @contact.your_name,
+      body: @contact.body
+    })
+    haml :"pages/contact/thanks", layout: :default
+  else
+    haml :"pages/contact", layout: :default
+  end
+end
 
 #admin
 get "/admin" do

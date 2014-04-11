@@ -60,8 +60,20 @@
   }
 
   li {
-    margin-right: 30px;
+    margin-right: 50px;
     float: left;
+
+    &.img-medium {
+      padding-left: 25px;
+      background: url("/images/icons/medium.png") no-repeat left center;
+      background-size: 17px;
+    }
+
+    &.img-scale {
+      padding-left: 25px;
+      background: url("/images/icons/scale.png") no-repeat left center;
+      background-size: 17px;
+    }
   }
 
   img {

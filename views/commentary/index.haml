@@ -3,11 +3,23 @@
 #left-container 
   = haml :'/shared/_navigation'
   .row.content
-    %h2
-      = @commentary.title
-    = pretty_date(@commentary.created_at)
-    %p
-      = @commentary.content
+    - if @all.present?
+      %h2
+        Commentaries
+      - @all.each do |c|
+        %h3.margin-top
+          %a{ href: "/commentary/#{c.id}"}
+            = c.title + " - "
+          = pretty_date(c.created_at)
+        / %p
+        /   = truncate(c.content)
+
+    - else
+      %h2
+        = @commentary.title
+      = pretty_date(@commentary.created_at)
+      %p.margin-top
+        = @commentary.content
       
 %img.bg{ src: "/images/backgrounds/commentary.jpg" }
 

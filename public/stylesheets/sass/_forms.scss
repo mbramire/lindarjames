@@ -1,5 +1,5 @@
 input, textarea {
-  border: 1px solid gray;
+  border: 1px solid darken($light-gray, 10%);
   background: $light-gray;
   padding: 7px;
   @include roundcorners;
