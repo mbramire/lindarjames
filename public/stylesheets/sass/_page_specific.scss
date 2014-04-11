@@ -62,9 +62,11 @@
   ul {
     display: inline-block;
     margin: 0 auto;
+    position: relative;
+    margin-left: 40px;
 
     li {
-      margin-right: 50px;
+      margin-right: 40px;
       float: left;
 
       &.img-medium {
