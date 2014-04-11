@@ -27,3 +27,9 @@ $margin: 15px;
   -moz-border-radius: $amnt;
   border-radius: $amnt;
 }
+
+@mixin list-icon($image){
+  padding-left: 25px;
+  background: url("/images/icons/" + $image + "") no-repeat left center;
+  background-size: 17px;
+}

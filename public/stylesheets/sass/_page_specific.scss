@@ -59,20 +59,29 @@
     margin: 0 7px 0 0;
   }
 
-  li {
-    margin-right: 50px;
-    float: left;
+  ul {
+    display: inline-block;
+    margin: 0 auto;
 
-    &.img-medium {
-      padding-left: 25px;
-      background: url("/images/icons/medium.png") no-repeat left center;
-      background-size: 17px;
-    }
+    li {
+      margin-right: 50px;
+      float: left;
 
-    &.img-scale {
-      padding-left: 25px;
-      background: url("/images/icons/scale.png") no-repeat left center;
-      background-size: 17px;
+      &.img-medium {
+        @include list-icon("medium.png");
+      }
+
+      &.img-scale {
+        @include list-icon("scale.png");
+      }
+
+      &.img-date {
+        @include list-icon("date.png");
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
     }
   }
 
@@ -121,6 +130,7 @@
 
   img {
     margin-right: 5px;
+    border: 2px solid white;
 
     &.selected {
       border: 2px solid $primary;

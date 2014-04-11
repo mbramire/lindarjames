@@ -17,9 +17,10 @@
 #gallery
   .img-container
     #image-info
-      %h2{ data: {type: "title"} }
-        = @image.title
       %ul
+        %li
+          %h2{ data: {type: "title"} }
+            = @image.title
         %li.img-date{ data: {type: "date"} }
           = @image.date
         %li.img-medium{ data: {type: "medium"} }
