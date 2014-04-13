@@ -1,0 +1,31 @@
+#left-container 
+  .row.content
+    %h2
+      Contact
+
+    %p
+      Please use the form below to contact me with any questions or requests that you may have. I look forward to hearing form you and will do my best to respond as promptly as possible.
+      
+    %form{ action: "/contact", method: "post" }
+      - if @contact.present?
+        = haml :"shared/_errors", locals: {obj: @contact}
+
+      %label.margin-top{ for: "contact_name" }
+        your name
+      %input{ id: "contact_name", name: "contact[your_name]", type: "text", value: (@contact.your_name if @contact.present?)} 
+
+      %label.margin-top{ for: "contact_email" }
+        your email address
+      %input{ id: "contact_email", name: "contact[your_email]", type: "text", value: (@contact.your_email if @contact.present?)} 
+
+      %label.margin-top{ for: "contact_body" }
+        comments
+      %textarea{ name: "contact[body]", rows: "10", style: "width: 100%"}
+        - if @contact.present?
+          = @contact.body
+      %br
+
+      %input.btn{ type: "submit", value: "send email"}
+          
+%img.bg{ src: "/images/backgrounds/contact.jpg" }
+

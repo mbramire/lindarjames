@@ -77,7 +77,7 @@ end
 #contact Form
 get "/contact" do
   @nav = "contact"
-  haml :"pages/contact", layout: :default
+  haml :"contact/index", layout: :default
 end
 
 post "/contact" do
@@ -89,9 +89,9 @@ post "/contact" do
       subject: @contact.your_name,
       body: @contact.body
     })
-    haml :"pages/contact/thanks", layout: :default
+    haml :"contact/thanks", layout: :default
   else
-    haml :"pages/contact", layout: :default
+    haml :"contact/index", layout: :default
   end
 end
 
